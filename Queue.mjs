@@ -11,6 +11,7 @@
 */
 export default class Queue {
   #data; // Vetor privado
+  #operationCount = 0; // Número de operações
 
   constructor() {
     this.#data = []; // Vetor vazio
@@ -18,11 +19,13 @@ export default class Queue {
 
   // Método para inserção na fila
   enqueue(val) {
+    this.#operationCount++;
     this.#data.push(val);
   }
 
   // Método para remoção da fila
   dequeue() {
+    this.#operationCount++;
     return this.#data.shift();
   }
 
@@ -35,6 +38,10 @@ export default class Queue {
   // (propriedade somente leitura)
   get isEmpty() {
     return this.#data.length === 0;
+  }
+
+  get getOperationCount() {
+    return this.#operationCount;
   }
 
   // Método que imprime a fila (para efeitos de depuração)
