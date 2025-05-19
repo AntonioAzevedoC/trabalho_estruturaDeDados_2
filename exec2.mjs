@@ -17,8 +17,31 @@ const pilhaA = new Stack();
 const pilhaB = new Stack();
 const pilhaC = new Stack();
 
+// Valores início
 pilhaB.push(1);
 pilhaB.push(2);
 pilhaB.push(3);
 pilhaB.push(4);
 console.log(pilhaB.print());
+
+// Movimentações
+pilhaC.push(pilhaB.pop());
+pilhaA.push(pilhaB.pop());
+pilhaA.push(pilhaC.pop());
+pilhaC.push(pilhaB.pop());
+pilhaB.push(pilhaA.pop());
+pilhaC.push(pilhaA.pop());
+pilhaC.push(pilhaB.pop());
+pilhaA.push(pilhaB.pop());
+pilhaA.push(pilhaC.pop());
+pilhaB.push(pilhaC.pop());
+pilhaB.push(pilhaA.pop());
+pilhaA.push(pilhaC.pop());
+pilhaC.push(pilhaB.pop());
+pilhaA.push(pilhaB.pop());
+pilhaA.push(pilhaC.pop());
+
+// Resultado final
+console.log("Pilha A: ", pilhaA.print());
+console.log("Pilha B: ", pilhaB.print());
+console.log("Pilha C: ", pilhaC.print());
