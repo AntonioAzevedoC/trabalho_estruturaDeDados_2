@@ -10,6 +10,7 @@
 */
 export default class Stack {
   #data; // Vetor privado
+  #historyData = [];
 
   constructor() {
     this.#data = []; // Vetor vazio
@@ -22,6 +23,7 @@ export default class Stack {
 
   // Método para remoção do vetor
   pop() {
+    this.#historyData.push(this.peek());
     return this.#data.pop();
   }
 
@@ -35,6 +37,10 @@ export default class Stack {
   // (propriedade somente leitura)
   get isEmpty() {
     return this.#data.length === 0;
+  }
+
+  get history() {
+    return this.#historyData;
   }
 
   // Método que imprime a pilha (para efeitos de depuração)
