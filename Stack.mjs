@@ -11,14 +11,17 @@
 export default class Stack {
   #data; // Vetor privado
   #historyData = [];
+  #limite;
 
-  constructor() {
+  constructor(limite = 10) {
     this.#data = []; // Vetor vazio
+    this.#limite = limite; // Limite do vetor #datas
   }
 
   // Método para inserção no vetor
   push(val) {
-    this.#data.push(val);
+    if (this.#data.length < this.#limite) this.#data.push(val);
+    else throw new Error(`Limite de array atingido  `);
   }
 
   // Método para remoção do vetor
